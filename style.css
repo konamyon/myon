@@ -11,9 +11,7 @@ header {
   width: 100%;
   background: #004080;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  /* 下に影をつけて浮いて見せる */
   z-index: 4;
-  /* 他の要素より前面に出す */
 }
 
 /*ヘッダーの下にメイン要素が隠れないようにする*/
@@ -21,7 +19,7 @@ main {
   padding-top: 120px;
 }
 
-/* 学科名表示部分 */
+/* 大学学部学科名表示 */
 .site-title {
   text-align: center;
 }
@@ -67,7 +65,7 @@ main {
   background-repeat: no-repeat;
   color: white;
   font-size: 2.5rem;
-  padding: 4em 1em;
+  padding: 2em 1em;
   text-align: center;
 }
 
@@ -81,12 +79,13 @@ main {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.4);
-  z-index: -1; /*フィルターが文字の下に入るように*/
+  z-index: -1;
+  /*フィルターが文字の下に入るように*/
 }
 
 /* トップページのお知らせ要の色設定 */
 .news {
-  background: linear-gradient(to right, #f78c6b, #fbc490);
+  background: linear-gradient(to right, #f7754e, #fbc490);
   color: #333;
 }
 
@@ -106,12 +105,12 @@ footer {
 
 /*トップページのカリキュラム要素の背景*/
 .cur {
-  background-image: url("image/cur.png");
+  background-image: url("image/cur.jpeg");
 }
 
 /*トップページの教員と研究室要素の背景*/
 .lab {
-  background-image: url("image/lab.png");
+  background-image: url("image/lab.jpeg");
 }
 
 /*トップページのキャリア要素の背景*/
@@ -135,25 +134,24 @@ footer {
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+/* 日付の色を強調 */
 .news-list li strong {
   color: #ffd166;
   margin-right: 1em;
 }
 
+/* トップページの各セクションのスタイル */
 .overview {
-
   background-size: cover;
-  /* 全体に拡大して表示 */
   background-position: center;
-  /* 中央に表示 */
   background-repeat: no-repeat;
-  /* 繰り返さない */
   color: white;
   font-size: 2.3rem;
   padding: 2em 1em;
   text-align: center;
 }
 
+/* 読みやすように背景の写真を暗くする */
 .overview::before {
   content: "";
   position: absolute;
@@ -162,15 +160,26 @@ footer {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.4);
-  /* 見えやすいように暗いフィルター */
   z-index: -1;
-  /*文字の下にフィルター*/
 }
 
+/* トップページのお知らせセクションのスタイル */
+.overview-news {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  font-size: 2.3rem;
+  padding: 2em 1em;
+  text-align: center;
+}
+
+/* 各セクションの見出し文字の設定 */
 .overview h2 {
   margin-top: 0;
 }
 
+/* 詳しく見るのボタンの設定 */
 .btn {
   display: inline-block;
   margin-top: 0.5em;
@@ -179,23 +188,30 @@ footer {
   color: white;
   text-decoration: none;
   border-radius: 4px;
+  font-size: 1.5rem;
 }
 
+/* ボタンのホバー設定 */
 .btn:hover {
   background-color: #0066cc;
 }
 
+/* ふわっと出現するアニメーションの初期設定 */
 .hero,
 .overview {
   opacity: 0;
   transform: translateY(30px);
 }
 
-/* タブレット以下 */
-/* ハンバーガーボタン（3本線）*/
+/* お知らせをふわっと出現させるアニメーションの初期設定 */
+.overview-news {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* ハンバーガーメニュー */
 .menu-toggle {
   display: none;
-  /* PCは非表示 */
   flex-direction: column;
   justify-content: space-around;
   width: 30px;
@@ -206,11 +222,12 @@ footer {
   padding: 0;
   box-sizing: border-box;
   position: absolute;
-  top: 1.5em;
+  top: 1em;
   right: 1em;
   z-index: 5;
 }
 
+/* ハンバーガーメニューの三本線の設定 */
 .menu-toggle span {
   width: 100%;
   height: 3px;
@@ -218,6 +235,7 @@ footer {
   border-radius: 2px;
 }
 
+/* トップページ以外のページのタイトル部分の設定 */
 .page-header {
   position: relative;
   background-image: url("image/pasocom.jpeg");
@@ -231,16 +249,16 @@ footer {
   overflow: hidden;
 }
 
+/* 文字が読みやすいように暗いフィルター */
 .page-header::before {
   content: "";
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.4);
-  /* 見えやすいように暗いフィルター */
   z-index: 0;
-  /*文字の下にフィルター*/
 }
 
+/* ページのタイトルの文字の設定 */
 .page-header h2 {
   position: relative;
   z-index: 1;
@@ -249,12 +267,14 @@ footer {
   letter-spacing: 1px;
 }
 
+/* ニュースが一覧の全体の設定 */
 .news-list {
   max-width: 1000px;
   margin: 2em auto;
   padding: 0 1em;
 }
 
+/* ニュースそれぞれの設定 */
 .news-item {
   display: flex;
   gap: 1em;
@@ -264,71 +284,35 @@ footer {
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   flex-wrap: wrap;
-  /* スマホ時に縦並びになるように */
 }
 
+/* ニュースの写真の設定 */
 .news-item img {
   width: 300px;
-  height: auto;
+  height: 200px;
   object-fit: cover;
   flex-shrink: 0;
 }
 
+/* ニュースの文字の設定 */
 .news-content {
   flex: 1;
   padding: 1em;
 }
 
+/* ニュースの内容の表示位置設定 */
 .news-content h3 {
   margin-top: 0;
 }
 
+/* 日付の表示設定 */
 .news-content .date {
   font-size: 0.9rem;
   color: #888;
   margin-bottom: 0.5em;
 }
 
-/* #particles-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 9999;
-  overflow: hidden;
-}
-.particle {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background-color: white;
-  border-radius: 50%;
-  opacity: 0.8;
-} */
-
-
-/* #particles-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 3;
-  overflow: hidden;
-}
-
-.particle {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background-color: rgba(255, 255, 255, 0.8); 
-  border-radius: 0;
-} */
-
-
+/* キャラクターの表示設定(最初は非表示) */
 .mascot-container {
   opacity: 0;
   transition: opacity 0.5s ease;
@@ -340,29 +324,28 @@ footer {
   display: flex;
   align-items: flex-end;
   flex-direction: row-reverse;
-  /* ← ここがポイント */
 }
 
+/* キャラクターの表示設定(表示する) */
 .mascot-container.active {
   opacity: 1;
   pointer-events: auto;
   /* 表示後は有効化 */
 }
 
+/* キャラクターの位置 */
 .mascot {
   height: 90px;
 }
 
-
+/* 吹き出しの設定 */
 .speech-bubble {
   position: relative;
   background: #fff;
   border-radius: 10px;
   padding: 1em;
   margin-right: 10px;
-  /* 右側の余白（キャラとの間隔） */
   margin-bottom: 20px;
-  /* 吹き出しを上に押し上げる */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   font-size: 0.9rem;
   max-width: 200px;
@@ -370,13 +353,12 @@ footer {
   transition: opacity 0.3s ease;
 }
 
-/* 吹き出しの三角を右下にする */
+/* 吹き出し三角の部分 */
 .speech-bubble::after {
   content: "";
   position: absolute;
   bottom: 10px;
   right: -10px;
-  /* ← 右側に変更 */
   border-width: 10px 0 10px 10px;
   border-style: solid;
   border-color: transparent transparent transparent #fff;
@@ -387,103 +369,141 @@ footer {
 
 
 
-/* 画面幅768px以下で表示 */
+/* 画面幅768px以下(スマホ用) */
 @media (max-width: 768px) {
+
+  /* ハンバーガーメニューの表示 */
   .menu-toggle {
     display: flex;
   }
 
-  /* メニューは非表示で縦並び */
+  /* ハンバーガーボタンを押したときに出てくるメニューの設定 */
   .main-nav {
     display: none;
     position: absolute;
-    top: 60px;
+    top: 50px;
     right: 0px;
     width: 200px;
     border-radius: 4px;
   }
 
+  /* メニューの要素の設定 */
   .main-nav ul {
     flex-direction: column;
     margin: 0;
     padding: 0;
   }
 
+  /* メニューの各要素の設定 */
   .main-nav ul li a {
     padding: 1em;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
 
+  /* メニューの最後の要素だけ下線を消す */
   .main-nav ul li:last-child a {
     border-bottom: none;
   }
 
-  /* メニュー開いたら表示 */
+  /* メニューを開いたら表示 */
   .main-nav.active {
     display: block;
   }
 
+  /* メイン要素がヘッダーに隠れないように */
   main {
-    padding-top: 50px;
+    padding-top: 40px;
   }
 
+  /* ヒーローが最初の画面いっぱいに表示されるように */
+  .hero {
+    padding: 6em 0.5em;
+  }
+
+  /* ヒーロー要素の見出しの文字の調整 */
   .hero h1 {
     font-size: 1.5rem;
-    /* 小さめに調整 */
     padding: 0 1em;
-    /* 左右の余白を増やして見やすく */
   }
 
+  /* ヒーロー要素の文の文字の調整 */
   .hero p {
     font-size: 1rem;
     padding: 0 1em;
   }
 
+  /* 各セクションの見出しの文字の調整 */
   .overview h2 {
     font-size: 1.4rem;
-    /* 小さめに */
     padding: 0 1em;
   }
 
+  /* 各セクションの文の文字の調整 */
   .overview p {
     font-size: 1rem;
     padding: 0 1em;
   }
 
-  .btn {
-    padding: 0.4em 0.8em;
-    /* 小さめに */
-    font-size: 0.85rem;
-    /* 文字サイズも小さく */
+  /* 各セクションの見出しの文字の調整 */
+  .overview-news h2 {
+    font-size: 1.4rem;
+    padding: 0 1em;
   }
 
+  /* ボタンの大きさの調整 */
+  .btn {
+    padding: 0.4em 0.8em;
+    font-size: 0.85rem;
+  }
+
+  /* 日付と内容を縦並びに */
+  .news-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  /* 日付を強調 */
+  .news-list li strong {
+    font-size: 0.9rem;
+    color: #ffd166;
+  }
+
+  /* スマホ版では縦並び */
   .news-item {
     flex-direction: column;
   }
 
+  /* 画像の大きさの設定 */
   .news-item img {
     width: 100%;
   }
 
+  /* ページタイトルの文字の大きさ調整 */
   .page-header h2 {
     font-size: 1.8rem;
   }
 
+  /* ページタイトルのパディングの調整 */
   .page-header {
     padding: 3em 1em;
   }
 
+  /* 大学学部学科名の文字の調整 */
   .site-title h2 {
-    font-size: 1.2rem;
-    /* スマホで小さく */
+    font-size: 1rem;
     text-align: left;
     padding-left: 0.5em;
   }
 
+  /* キャラクターの位置の設定 */
   .mascot {
     height: 70px;
   }
 
+  /* 吹き出しの位置の設定 */
   .speech-bubble {
     margin-bottom: 10px;
   }
