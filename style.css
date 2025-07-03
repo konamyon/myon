@@ -1,0 +1,460 @@
+body {
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/*大学学部学科名とナビゲーションバーを表示するヘッダー*/
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #004080;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 下に影をつけて浮いて見せる */
+  z-index: 4; /* 他の要素より前面に出す */
+}
+
+/*ヘッダーの下にメイン要素が隠れないようにする*/
+main {
+  padding-top: 120px;
+}
+
+/* 学科名表示部分 */
+.site-title {
+  text-align: center;
+}
+
+/* ナビゲーションバー */
+.main-nav {
+  background-color: #306fae;
+}
+
+/*ナビゲーションバーの要素の設定*/
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+/*ナビゲーションバーの要素同士の間隔*/
+.main-nav ul li {
+  margin: 0;
+}
+
+/*ナビゲーションバーの要素の文字の設定*/
+.main-nav ul li a {
+  display: block;
+  padding: 1em 1.5em;
+  color: white;
+  text-decoration: none;
+}
+
+/*ナビゲーションバーのホバー設定*/
+.main-nav ul li a:hover {
+  background-color: #4a82d1;;
+}
+
+/* ヒーローセクションの設定 */
+.hero {
+  background-image: url("image/pasocom.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  font-size: 2.5rem;
+  padding: 4em 1em;
+  text-align: center;
+}
+
+
+/*ヒーローセクションの背景画像に暗いフィルターを書ける*/
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1; /*フィルターが文字の下に入るように*/
+}
+
+/* トップページのお知らせ要の色設定 */
+.news {
+  background: linear-gradient(to right, #f78c6b, #fbc490);
+  color: #333;
+}
+
+/*フッターの設定*/
+footer {
+  background-color: #eee;
+  text-align: center;
+  padding: 1em 0;
+  margin-top: 4em;
+}
+
+/*大学学部学科の文字*/
+.site-title h2 a {
+  color: white;
+  text-decoration: none;
+}
+
+/*トップページのカリキュラム要素の背景*/
+.cur {
+  background-image: url("image/cur.png");
+}
+
+/*トップページの教員と研究室要素の背景*/
+.lab {
+  background-image: url("image/lab.png");
+}
+
+/*トップページのキャリア要素の背景*/
+.car {
+  background-image: url("image/car.jpeg");
+}
+
+/*トップページのお知らせ要素の文字表示設定*/
+.news-list {
+  list-style: none;
+  padding: 0;
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 1em auto;
+  text-align: left;
+}
+
+/*トップページのお知らせ要素の中の各要素の設定*/
+.news-list li {
+  padding: 0.5em 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.news-list li strong {
+  color: #ffd166;
+  /* 日付を強調したいなら */
+  margin-right: 1em;
+}
+
+.overview {
+
+  background-size: cover;
+  /* 全体に拡大して表示 */
+  background-position: center;
+  /* 中央に表示 */
+  background-repeat: no-repeat;
+  /* 繰り返さない */
+  color: white;
+  font-size: 2.3rem;
+  padding: 2em 1em;
+  text-align: center;
+}
+
+.overview::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* 見えやすいように暗いフィルター */
+  z-index: -1; /*文字の下にフィルター*/
+}
+
+.overview h2 {
+  margin-top: 0;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 0.5em;
+  padding: 0.5em 1em;
+  background-color: #004080;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  background-color: #0066cc;
+}
+
+.hero,
+.overview {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* タブレット以下 */
+/* ハンバーガーボタン（3本線）*/
+.menu-toggle {
+  display: none;
+  /* PCは非表示 */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  box-sizing: border-box;
+  position: absolute;
+  top: 1.5em;
+  right: 1em;
+  z-index: 5;
+}
+
+.menu-toggle span {
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+}
+
+.page-header {
+  position: relative;
+  background-image: url("image/pasocom.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  text-align: center;
+  padding: 4em 1em;
+  margin-bottom: 2em;
+  overflow: hidden;
+}
+
+.page-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* 見えやすいように暗いフィルター */
+  z-index: 0; /*文字の下にフィルター*/
+}
+
+.page-header h2 {
+  position: relative;
+  z-index: 1;
+  font-size: 2.5rem;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.news-list {
+  max-width: 1000px;
+  margin: 2em auto;
+  padding: 0 1em;
+}
+
+.news-item {
+  display: flex;
+  gap: 1em;
+  margin-bottom: 2em;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+  /* スマホ時に縦並びになるように */
+}
+
+.news-item img {
+  width: 300px;
+  height: auto;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.news-content {
+  flex: 1;
+  padding: 1em;
+}
+
+.news-content h3 {
+  margin-top: 0;
+}
+
+.news-content .date {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 0.5em;
+}
+
+/* #particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.8;
+} */
+
+
+/* #particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.8); 
+  border-radius: 0;
+} */
+
+
+.mascot-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: flex-end;
+}
+
+.mascot {
+  height: 120px;
+}
+
+
+.speech-bubble {
+  position: relative;
+  background: #fff;
+  border-radius: 10px;
+  padding: 1em;
+  margin-right: 5px;
+  margin-left: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  font-size: 0.9rem;
+  max-width: 200px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: -10px;
+  border-width: 10px 10px 10px 0;
+  border-style: solid;
+  border-color: transparent #fff transparent transparent;
+}
+
+
+
+
+
+/* 画面幅768px以下で表示 */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* メニューは非表示で縦並び */
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0px;
+    width: 200px;
+    border-radius: 4px;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+  }
+
+  .main-nav ul li a {
+    padding: 1em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .main-nav ul li:last-child a {
+    border-bottom: none;
+  }
+
+  /* メニュー開いたら表示 */
+  .main-nav.active {
+    display: block;
+  }
+
+  main {
+    padding-top: 50px;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+    /* 小さめに調整 */
+    padding: 0 1em;
+    /* 左右の余白を増やして見やすく */
+  }
+
+  .hero p {
+    font-size: 1rem;
+    padding: 0 1em;
+  }
+
+  .overview h2 {
+    font-size: 1.4rem;
+    /* 小さめに */
+    padding: 0 1em;
+  }
+
+  .overview p {
+    font-size: 1rem;
+    padding: 0 1em;
+  }
+
+  .btn {
+    padding: 0.4em 0.8em;
+    /* 小さめに */
+    font-size: 0.85rem;
+    /* 文字サイズも小さく */
+  }
+
+  .news-item {
+    flex-direction: column;
+  }
+
+  .news-item img {
+    width: 100%;
+  }
+
+  .page-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .page-header {
+    padding: 3em 1em;
+  }
+
+  .site-title h2 {
+    font-size: 1.2rem;
+    /* スマホで小さく */
+    text-align: left;
+    padding-left: 0.5em; 
+  }
+}

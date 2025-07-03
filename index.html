@@ -1,13 +1,83 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MyonSite</title>
+  <title>未来科学大学 情報メディア学部 情報工学科</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <h1>MyonSite</h1>
-  <p>これはテストページです。</p>
-  <p>myon</p>
+  <header>
+    <div class="site-title">
+      <h2><a href="index.html">未来科学大学 情報メディア学部 情報工学科</a></h2>
+    </div>
+
+    <button class="menu-toggle" aria-label="メニュー開閉">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="curriculum.html">カリキュラム</a></li>
+        <li><a href="labs.html">研究室と教員</a></li>
+        <li><a href="careers.html">就職先</a></li>
+        <li><a href="news.html">お知らせ</a></li>
+        <li><a href="contact.html">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<div class="mascot-container">
+  <img src="image/myon.PNG" alt="学科キャラクター" class="mascot">
+  <div class="speech-bubble" id="bubble">ようこそ！スクロールしてね！</div>
+</div>
+
+  
+  <main>
+    <!-- <div id="particles-container"></div> -->
+    <section class="hero">
+      <h1>未来を創るメディアテクノロジー</h1>
+      <p>人と社会をつなぐ情報メディアのプロフェッショナルを育てます。</p>
+    </section>
+
+    <!-- 各セクション概要 -->
+    <section class="overview cur">
+      <h2>カリキュラム</h2>
+      <p>情報メディアの基礎から応用まで、段階的に学べる4年間のカリキュラム。</p>
+      <a href="curriculum.html" class="btn">詳しく見る</a>
+    </section>
+
+    <section class="overview lab">
+      <h2>研究室と教員</h2>
+      <p>AI、映像、デザイン、ネットワークなど多彩な分野を専門とする教員が所属。</p>
+      <a href="labs.html" class="btn">詳しく見る</a>
+    </section>
+
+    <section class="overview car">
+      <h2>就職先</h2>
+      <p>IT業界を中心に、広告、ゲーム、官公庁など幅広い分野に卒業生が活躍中。</p>
+      <a href="careers.html" class="btn">詳しく見る</a>
+    </section>
+
+    <section class="overview news">
+      <h2>お知らせ</h2>
+      <ul class="news-list">
+        <li><strong>2025-06-15</strong> - 2025年度入試説明会のお知らせ</li>
+        <li><strong>2025-06-01</strong> - オープンキャンパス開催決定！</li>
+        <li><strong>2025-05-20</strong> - 卒業制作展が開催されました</li>
+      </ul>
+      <a href="news.html" class="btn">もっと見る</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 東京電機大学 情報メディア学科</p>
+  </footer>
+  <script src="script.js"></script>
 </body>
+
 </html>
