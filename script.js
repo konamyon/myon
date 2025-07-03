@@ -1,21 +1,3 @@
-
-// DOM の読み込みを待つ
-// document.addEventListener("DOMContentLoaded", () => {
-//   const hero = document.querySelector(".hero");
-
-
-//     hero.animate(
-//       {
-//         opacity: [0, 1],
-//         transform: ["translateY(30px)", "translateY(0)"]
-//       },
-//       {
-//         duration: 2000,
-//         easing: "ease-out",
-//         fill: "forwards"
-//       }
-//     );
-// });
 document.addEventListener("DOMContentLoaded", () => {
   const targets = document.querySelectorAll(".overview");
 
@@ -91,79 +73,53 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// document.addEventListener("DOMContentLoaded", () => {
-//   const container = document.getElementById("particles-container");
-
-//   for (let i = 0; i < 30; i++) {
-//     const particle = document.createElement("div");
-//     particle.classList.add("particle");
-
-//     // サイズをランダムに設定
-//     const size = 6 + Math.random() * 10;
-//     particle.style.width = `${size}px`;
-//     particle.style.height = `${size}px`;
-
-//     // 四角形にする（念のため）
-//     particle.style.borderRadius = "0";
-
-//     // 初期位置（画面上部、横方向はランダム）
-//     const startX = Math.random() * window.innerWidth;
-//     const startY = 120;
-
-//     particle.style.left = `${startX}px`;
-//     particle.style.top = `${startY}px`;
-
-//     container.appendChild(particle);
-
-//     // アニメーション（落ちる＋回転）
-//     particle.animate(
-//       [
-//         {
-//           transform: "translateY(0) rotate(0deg)",
-//           opacity: 1
-//         },
-//         {
-//           transform: `translateY(${window.innerHeight + 50}px) rotate(${360 + Math.random() * 360}deg)`,
-//           opacity: 0
-//         }
-//       ],
-//       {
-//         duration: 2000 + Math.random() * 1000,
-//         delay: i * 100,
-//         easing: "ease-in-out",
-//         fill: "forwards"
-//       }
-//     );
-//   }
-// });
-
 
 const bubble = document.getElementById("bubble");
 
-const messages = [
-  { selector: ".cur", text: "カリキュラムでは4年間の流れを紹介してるよ！" },
-  { selector: ".lab", text: "研究室では最新技術を学べるよ！" },
-  { selector: ".car", text: "卒業後の進路も幅広いよ！" }
-];
+document.addEventListener("DOMContentLoaded", () => {
+  const bubble = document.getElementById("bubble");
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      bubble.textContent = entry.target.dataset.message;
-      bubble.style.opacity = 1;
-      setTimeout(() => {
-        bubble.style.opacity = 0;
-      }, 4000);
+  const messages = [
+    { selector: ".hero", text: "情報工学科へようこそ！" },
+    { selector: ".cur", text: "カリキュラムでは4年間の流れを紹介してるよ！" },
+    { selector: ".lab", text: "研究室では最新技術を学べるよ！" },
+    { selector: ".car", text: "卒業後の進路も幅広いよ！" }
+  ];
+
+  // ページ読み込み直後に「ようこそ！」を表示
+  bubble.textContent = "情報工学科へようこそ！";
+  bubble.style.opacity = 1;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        bubble.textContent = entry.target.dataset.message;
+        bubble.style.opacity = 1;
+      }
+    });
+  }, {
+    threshold: 0.6
+  });
+
+  messages.forEach(msg => {
+    const el = document.querySelector(msg.selector);
+    if (el) {
+      el.dataset.message = msg.text;
+      observer.observe(el);
     }
   });
-}, {
-  threshold: 0.6
+
+  const mascotContainer = document.querySelector(".mascot-container");
+
+  // 初期は吹き出し非表示
+  bubble.style.opacity = 0;
+
+  // 3秒待ってから表示
+  setTimeout(() => {
+    mascotContainer.classList.add("active");
+    bubble.textContent = "情報工学科へようこそ！";
+    bubble.style.opacity = 1;
+  }, 3000);
 });
 
-messages.forEach(msg => {
-  const el = document.querySelector(msg.selector);
-  if (el) {
-    el.dataset.message = msg.text;
-    observer.observe(el);
-  }
-});
+

@@ -10,8 +10,10 @@ header {
   left: 0;
   width: 100%;
   background: #004080;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 下に影をつけて浮いて見せる */
-  z-index: 4; /* 他の要素より前面に出す */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* 下に影をつけて浮いて見せる */
+  z-index: 4;
+  /* 他の要素より前面に出す */
 }
 
 /*ヘッダーの下にメイン要素が隠れないようにする*/
@@ -53,7 +55,8 @@ main {
 
 /*ナビゲーションバーのホバー設定*/
 .main-nav ul li a:hover {
-  background-color: #4a82d1;;
+  background-color: #4a82d1;
+  ;
 }
 
 /* ヒーローセクションの設定 */
@@ -69,7 +72,7 @@ main {
 }
 
 
-/*ヒーローセクションの背景画像に暗いフィルターを書ける*/
+/*ヒーローセクションの背景画像に暗いフィルターをかける*/
 .hero::before {
   content: "";
   position: absolute;
@@ -134,7 +137,6 @@ footer {
 
 .news-list li strong {
   color: #ffd166;
-  /* 日付を強調したいなら */
   margin-right: 1em;
 }
 
@@ -159,8 +161,10 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* 見えやすいように暗いフィルター */
-  z-index: -1; /*文字の下にフィルター*/
+  background: rgba(0, 0, 0, 0.4);
+  /* 見えやすいように暗いフィルター */
+  z-index: -1;
+  /*文字の下にフィルター*/
 }
 
 .overview h2 {
@@ -231,8 +235,10 @@ footer {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4); /* 見えやすいように暗いフィルター */
-  z-index: 0; /*文字の下にフィルター*/
+  background: rgba(0, 0, 0, 0.4);
+  /* 見えやすいように暗いフィルター */
+  z-index: 0;
+  /*文字の下にフィルター*/
 }
 
 .page-header h2 {
@@ -324,16 +330,27 @@ footer {
 
 
 .mascot-container {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
   position: fixed;
-  bottom: 20px;
+  bottom: 0px;
   right: 20px;
   z-index: 1000;
   display: flex;
   align-items: flex-end;
+  flex-direction: row-reverse;
+  /* ← ここがポイント */
+}
+
+.mascot-container.active {
+  opacity: 1;
+  pointer-events: auto;
+  /* 表示後は有効化 */
 }
 
 .mascot {
-  height: 120px;
+  height: 90px;
 }
 
 
@@ -342,24 +359,29 @@ footer {
   background: #fff;
   border-radius: 10px;
   padding: 1em;
-  margin-right: 5px;
-  margin-left: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  margin-right: 10px;
+  /* 右側の余白（キャラとの間隔） */
+  margin-bottom: 20px;
+  /* 吹き出しを上に押し上げる */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   font-size: 0.9rem;
   max-width: 200px;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
+/* 吹き出しの三角を右下にする */
 .speech-bubble::after {
   content: "";
   position: absolute;
   bottom: 10px;
-  left: -10px;
-  border-width: 10px 10px 10px 0;
+  right: -10px;
+  /* ← 右側に変更 */
+  border-width: 10px 0 10px 10px;
   border-style: solid;
-  border-color: transparent #fff transparent transparent;
+  border-color: transparent transparent transparent #fff;
 }
+
 
 
 
@@ -455,6 +477,14 @@ footer {
     font-size: 1.2rem;
     /* スマホで小さく */
     text-align: left;
-    padding-left: 0.5em; 
+    padding-left: 0.5em;
+  }
+
+  .mascot {
+    height: 70px;
+  }
+
+  .speech-bubble {
+    margin-bottom: 10px;
   }
 }
